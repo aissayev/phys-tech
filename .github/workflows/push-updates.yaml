@@ -1,0 +1,24 @@
+# NOTE: If you just cloned the starter, you should DELETE this workflow - We use this to automatically push Takeout updates
+# Needless to say this workflow will not work on repos other than ones under the `tamagui` GH org
+
+name: Push Updates
+on:
+  push:
+    branches:
+      - dev
+  workflow_dispatch:
+jobs:
+  push-updates:
+    runs-on: ubuntu-latest
+    steps:
+      - id: push-updates
+        name: Push Updates
+        uses: tamagui/takeout-bot@main
+        with:
+          app_private_key: ${{ secrets.APP_PRIVATE_KEY }}
+          supabase_service_role_key: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          gh_app_secret: ${{ secrets.GH_APP_SECRET }}
+          gh_admin_token: ${{ secrets.GH_ADMIN_TOKEN }}
+          gh_app_id: ${{ vars.GH_APP_ID }}
+          gh_app_client_id: ${{ vars.GH_APP_CLIENT_ID }}
+          supabase_url: ${{ vars.SUPABASE_URL }}

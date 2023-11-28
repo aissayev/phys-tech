@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "expo.vscode-expo-tools",
+    "ms-azuretools.vscode-docker",
+    "yoavbls.pretty-ts-errors"
+  ]
+}
